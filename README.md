@@ -51,11 +51,8 @@ To set up and run this project, follow these steps:
 ## Contributing
 If you'd like to contribute to this project, please fork the repository, make your changes, and submit a pull request.
 
-## License
-This project is licensed under [unknown license]. If you plan to use this project, please ensure you understand the licensing terms.
-
 ## Authors
-* [Your Name]
+* Nakul Desai
 
 ## Acknowledgments
 * Bootstrap 5 for providing the CSS framework
