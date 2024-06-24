@@ -20,8 +20,8 @@
 <div class="container my-3">
   <div class="d-flex">
     <h3>Your ToDo's</h3>
-    <form class="d-flex ms-auto">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+    <form class="d-flex ms-auto" action="/search" method="POST">
+      <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search" />
       <button class="btn btn-outline-dark" type="submit">
         Search
       </button>
@@ -37,6 +37,7 @@
 
 {% else %}
 <table class="table">
+  <tbody>
   <thead>
     <tr>
       <th scope="col" style="text-align:center">SNo</th>
@@ -46,11 +47,11 @@
       <th scope="col" style="text-align:center">Action</th>
     </tr>
   </thead>
-  <tbody>
+  
 
     {% for todo in allTodo %}
     <tr>
-      <th scope="row" style="text-align:center">{{loop.index}}</th>
+      <td scope="row" style="text-align:center">{{loop.index}}</td>
       <td style="text-align:center">{{todo.title}}</td>
       <td style="text-align:center">{{todo.desc}}</td>
       <td style="text-align:center">{{todo.date_created}}</td>
@@ -59,9 +60,10 @@
         <a href="/delete/{{todo.sno}}" type="button" class="btn btn-outline-danger btn-sm mx-1">Delete</a>
       </td>
     </tr>
+    {% endfor %}
   </tbody>
 </table>
-{% endfor %}
+
 {% endif %}
 
 </div>

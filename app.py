@@ -54,5 +54,16 @@ def delete(sno):
     db.session.commit()
     return redirect('/')
 
+@app.route("/search", methods=['GET', 'POST'])
+def search():
+    if request.method == 'POST':
+        search_query = request.form['search']
+        todo_items = Todo.query.filter(
+            (Todo.title.like('%' + search_query + '%')) |
+            (Todo.desc.like('%' + search_query + '%'))
+        ).all()
+        return render_template("index.html", allTodo=todo_items)
+    return redirect("/")
+
 if __name__ == "__main__":
     app.run(debug=True)
